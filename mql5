@@ -1,0 +1,57 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                  Grid Emperor.mq5 |
+//|                          Copyright 2021, Forex Robot Easy Team   |
+//|                                            http://forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+// Define the currency pairs for trading
+string[] currencyPairs = {'EURUSD', 'GBPUSD', 'USDJPY', 'USDCHF', 'EURGBP', 'USDCAD', 'AUDUSD', 'NZDUSD'};
+
+// Define the trading strategy and algorithm
+// (Code for strategy and algorithm not provided in the terms of reference)
+
+// Define risk levels and position sizes for each currency pair
+double[] riskLevels = {0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08};
+int[] positionSizes = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000};
+
+// Define the main function for executing trades
+void OnTick()
+{
+   for(int i=0; i<ArraySize(currencyPairs); i++)
+   {
+      // Check market conditions and make trading decisions
+      bool shouldEnterTrade = CheckMarketConditions(currencyPairs[i]);
+      
+      if(shouldEnterTrade)
+      {
+         // Calculate the position size based on risk level
+         double positionSize = CalculatePositionSize(riskLevels[i], positionSizes[i]);
+         
+         // Execute the trade
+         ExecuteTrade(currencyPairs[i], positionSize);
+      }
+   }
+}
+
+// Function to check market conditions and make trading decisions
+bool CheckMarketConditions(string currencyPair)
+{
+   // (Code for market analysis not provided in the terms of reference)
+   // Placeholder code that always returns true for demonstration purposes
+   return true;
+}
+
+// Function to calculate position size based on risk level
+double CalculatePositionSize(double riskLevel, int positionSize)
+{
+   return riskLevel * positionSize;
+}
+
+// Function to execute the trade
+void ExecuteTrade(string currencyPair, double positionSize)
+{
+   // (Code for executing trade not provided in the terms of reference)
+   // Placeholder code that displays the trade details for demonstration purposes
+   Print('Executing trade for', currencyPair, 'with position size', positionSize);
+}
